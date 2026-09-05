@@ -1,0 +1,57 @@
+[
+  {
+    "commitment_id": "COM-001",
+    "client_id": "CL-0017",
+    "portfolio_id": "PF-0020",
+    "fund_name": "Meridian Private Equity Fund VII",
+    "currency": "USD",
+    "committed": 22000000,
+    "called_to_date": 8000000,
+    "uncalled": 14000000,
+    "expected_call_window": "2026 Q4 to 2028 Q2"
+  },
+  {
+    "commitment_id": "COM-002",
+    "client_id": "CL-0017",
+    "portfolio_id": "PF-0020",
+    "fund_name": "Global Infrastructure Debt Fund",
+    "currency": "USD",
+    "committed": 8000000,
+    "called_to_date": 6200000,
+    "uncalled": 1800000,
+    "expected_call_window": "2026 Q4 to 2027 Q3"
+  },
+  {
+    "commitment_id": "COM-003",
+    "client_id": "CL-0006",
+    "portfolio_id": "PF-0008",
+    "fund_name": "Meridian Private Equity Fund VII",
+    "currency": "USD",
+    "committed": 4500000,
+    "called_to_date": 1500000,
+    "uncalled": 3000000,
+    "expected_call_window": "2026 Q4 to 2028 Q1"
+  },
+  {
+    "commitment_id": "COM-004",
+    "client_id": "CL-0009",
+    "portfolio_id": "PF-0011",
+    "fund_name": "Meridian Private Equity Fund VII",
+    "currency": "USD",
+    "committed": 3000000,
+    "called_to_date": 1900000,
+    "uncalled": 1100000,
+    "expected_call_window": "2027 Q1 to 2028 Q2"
+  },
+  {
+    "commitment_id": "COM-005",
+    "client_id": "CL-0020",
+    "portfolio_id": "PF-0024",
+    "fund_name": "Meridian Private Equity Fund VII",
+    "currency": "USD",
+    "committed": 2000000,
+    "called_to_date": 1100000,
+    "uncalled": 900000,
+    "expected_call_window": "2027 Q1 to 2028 Q3"
+  }
+]

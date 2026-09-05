@@ -1,0 +1,6 @@
+{
+  "name": "Julius Baer — Wealth Intelligence",
+  "description": "AI-powered wealth advisory workbench and Papermark Virtual Data Room (VDR) featuring secure document sharing, dynamic forensic watermarking, NDA enforcement, and page-by-page viewer analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

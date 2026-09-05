@@ -1,0 +1,482 @@
+[
+  {
+    "mandate_code": "CONS",
+    "mandate_name": "Conservative",
+    "asset_class": "Cash and Equivalents",
+    "min_pct": 5,
+    "target_pct": 10,
+    "max_pct": 25,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Capital preservation. Max 10% in any single position."
+  },
+  {
+    "mandate_code": "CONS",
+    "mandate_name": "Conservative",
+    "asset_class": "Fixed Income",
+    "min_pct": 45,
+    "target_pct": 60,
+    "max_pct": 75,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Capital preservation. Max 10% in any single position."
+  },
+  {
+    "mandate_code": "CONS",
+    "mandate_name": "Conservative",
+    "asset_class": "Equity",
+    "min_pct": 10,
+    "target_pct": 20,
+    "max_pct": 30,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Capital preservation. Max 10% in any single position."
+  },
+  {
+    "mandate_code": "CONS",
+    "mandate_name": "Conservative",
+    "asset_class": "Alternatives",
+    "min_pct": 0,
+    "target_pct": 5,
+    "max_pct": 15,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Capital preservation. Max 10% in any single position."
+  },
+  {
+    "mandate_code": "CONS",
+    "mandate_name": "Conservative",
+    "asset_class": "Commodities",
+    "min_pct": 0,
+    "target_pct": 5,
+    "max_pct": 10,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Capital preservation. Max 10% in any single position."
+  },
+  {
+    "mandate_code": "CONS",
+    "mandate_name": "Conservative",
+    "asset_class": "Structured Products",
+    "min_pct": 0,
+    "target_pct": 0,
+    "max_pct": 10,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Capital preservation. Max 10% in any single position."
+  },
+  {
+    "mandate_code": "INC",
+    "mandate_name": "Income",
+    "asset_class": "Cash and Equivalents",
+    "min_pct": 3,
+    "target_pct": 8,
+    "max_pct": 20,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Yield generation with moderate capital risk."
+  },
+  {
+    "mandate_code": "INC",
+    "mandate_name": "Income",
+    "asset_class": "Fixed Income",
+    "min_pct": 40,
+    "target_pct": 55,
+    "max_pct": 70,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Yield generation with moderate capital risk."
+  },
+  {
+    "mandate_code": "INC",
+    "mandate_name": "Income",
+    "asset_class": "Equity",
+    "min_pct": 15,
+    "target_pct": 25,
+    "max_pct": 35,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Yield generation with moderate capital risk."
+  },
+  {
+    "mandate_code": "INC",
+    "mandate_name": "Income",
+    "asset_class": "Alternatives",
+    "min_pct": 0,
+    "target_pct": 7,
+    "max_pct": 15,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Yield generation with moderate capital risk."
+  },
+  {
+    "mandate_code": "INC",
+    "mandate_name": "Income",
+    "asset_class": "Commodities",
+    "min_pct": 0,
+    "target_pct": 2,
+    "max_pct": 8,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Yield generation with moderate capital risk."
+  },
+  {
+    "mandate_code": "INC",
+    "mandate_name": "Income",
+    "asset_class": "Structured Products",
+    "min_pct": 0,
+    "target_pct": 3,
+    "max_pct": 12,
+    "max_single_position_pct": 10.0,
+    "mandate_notes": "Yield generation with moderate capital risk."
+  },
+  {
+    "mandate_code": "BAL",
+    "mandate_name": "Balanced",
+    "asset_class": "Cash and Equivalents",
+    "min_pct": 2,
+    "target_pct": 7,
+    "max_pct": 18,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced growth and income."
+  },
+  {
+    "mandate_code": "BAL",
+    "mandate_name": "Balanced",
+    "asset_class": "Fixed Income",
+    "min_pct": 25,
+    "target_pct": 35,
+    "max_pct": 50,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced growth and income."
+  },
+  {
+    "mandate_code": "BAL",
+    "mandate_name": "Balanced",
+    "asset_class": "Equity",
+    "min_pct": 30,
+    "target_pct": 40,
+    "max_pct": 55,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced growth and income."
+  },
+  {
+    "mandate_code": "BAL",
+    "mandate_name": "Balanced",
+    "asset_class": "Alternatives",
+    "min_pct": 0,
+    "target_pct": 10,
+    "max_pct": 20,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced growth and income."
+  },
+  {
+    "mandate_code": "BAL",
+    "mandate_name": "Balanced",
+    "asset_class": "Commodities",
+    "min_pct": 0,
+    "target_pct": 3,
+    "max_pct": 10,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced growth and income."
+  },
+  {
+    "mandate_code": "BAL",
+    "mandate_name": "Balanced",
+    "asset_class": "Structured Products",
+    "min_pct": 0,
+    "target_pct": 5,
+    "max_pct": 15,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced growth and income."
+  },
+  {
+    "mandate_code": "BALG",
+    "mandate_name": "Balanced Growth",
+    "asset_class": "Cash and Equivalents",
+    "min_pct": 2,
+    "target_pct": 5,
+    "max_pct": 15,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Growth tilt with a fixed income anchor."
+  },
+  {
+    "mandate_code": "BALG",
+    "mandate_name": "Balanced Growth",
+    "asset_class": "Fixed Income",
+    "min_pct": 15,
+    "target_pct": 25,
+    "max_pct": 40,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Growth tilt with a fixed income anchor."
+  },
+  {
+    "mandate_code": "BALG",
+    "mandate_name": "Balanced Growth",
+    "asset_class": "Equity",
+    "min_pct": 40,
+    "target_pct": 50,
+    "max_pct": 65,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Growth tilt with a fixed income anchor."
+  },
+  {
+    "mandate_code": "BALG",
+    "mandate_name": "Balanced Growth",
+    "asset_class": "Alternatives",
+    "min_pct": 0,
+    "target_pct": 13,
+    "max_pct": 25,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Growth tilt with a fixed income anchor."
+  },
+  {
+    "mandate_code": "BALG",
+    "mandate_name": "Balanced Growth",
+    "asset_class": "Commodities",
+    "min_pct": 0,
+    "target_pct": 3,
+    "max_pct": 10,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Growth tilt with a fixed income anchor."
+  },
+  {
+    "mandate_code": "BALG",
+    "mandate_name": "Balanced Growth",
+    "asset_class": "Structured Products",
+    "min_pct": 0,
+    "target_pct": 4,
+    "max_pct": 15,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Growth tilt with a fixed income anchor."
+  },
+  {
+    "mandate_code": "GROW",
+    "mandate_name": "Growth",
+    "asset_class": "Cash and Equivalents",
+    "min_pct": 1,
+    "target_pct": 4,
+    "max_pct": 12,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Long-horizon capital appreciation."
+  },
+  {
+    "mandate_code": "GROW",
+    "mandate_name": "Growth",
+    "asset_class": "Fixed Income",
+    "min_pct": 5,
+    "target_pct": 12,
+    "max_pct": 25,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Long-horizon capital appreciation."
+  },
+  {
+    "mandate_code": "GROW",
+    "mandate_name": "Growth",
+    "asset_class": "Equity",
+    "min_pct": 50,
+    "target_pct": 62,
+    "max_pct": 78,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Long-horizon capital appreciation."
+  },
+  {
+    "mandate_code": "GROW",
+    "mandate_name": "Growth",
+    "asset_class": "Alternatives",
+    "min_pct": 0,
+    "target_pct": 17,
+    "max_pct": 30,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Long-horizon capital appreciation."
+  },
+  {
+    "mandate_code": "GROW",
+    "mandate_name": "Growth",
+    "asset_class": "Commodities",
+    "min_pct": 0,
+    "target_pct": 2,
+    "max_pct": 8,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Long-horizon capital appreciation."
+  },
+  {
+    "mandate_code": "GROW",
+    "mandate_name": "Growth",
+    "asset_class": "Structured Products",
+    "min_pct": 0,
+    "target_pct": 3,
+    "max_pct": 15,
+    "max_single_position_pct": 15.0,
+    "mandate_notes": "Long-horizon capital appreciation."
+  },
+  {
+    "mandate_code": "DYN",
+    "mandate_name": "Dynamic Opportunistic",
+    "asset_class": "Cash and Equivalents",
+    "min_pct": 0,
+    "target_pct": 3,
+    "max_pct": 15,
+    "max_single_position_pct": 20.0,
+    "mandate_notes": "High risk tolerance, wide tactical latitude."
+  },
+  {
+    "mandate_code": "DYN",
+    "mandate_name": "Dynamic Opportunistic",
+    "asset_class": "Fixed Income",
+    "min_pct": 0,
+    "target_pct": 5,
+    "max_pct": 20,
+    "max_single_position_pct": 20.0,
+    "mandate_notes": "High risk tolerance, wide tactical latitude."
+  },
+  {
+    "mandate_code": "DYN",
+    "mandate_name": "Dynamic Opportunistic",
+    "asset_class": "Equity",
+    "min_pct": 45,
+    "target_pct": 60,
+    "max_pct": 85,
+    "max_single_position_pct": 20.0,
+    "mandate_notes": "High risk tolerance, wide tactical latitude."
+  },
+  {
+    "mandate_code": "DYN",
+    "mandate_name": "Dynamic Opportunistic",
+    "asset_class": "Alternatives",
+    "min_pct": 0,
+    "target_pct": 25,
+    "max_pct": 45,
+    "max_single_position_pct": 20.0,
+    "mandate_notes": "High risk tolerance, wide tactical latitude."
+  },
+  {
+    "mandate_code": "DYN",
+    "mandate_name": "Dynamic Opportunistic",
+    "asset_class": "Commodities",
+    "min_pct": 0,
+    "target_pct": 2,
+    "max_pct": 10,
+    "max_single_position_pct": 20.0,
+    "mandate_notes": "High risk tolerance, wide tactical latitude."
+  },
+  {
+    "mandate_code": "DYN",
+    "mandate_name": "Dynamic Opportunistic",
+    "asset_class": "Structured Products",
+    "min_pct": 0,
+    "target_pct": 5,
+    "max_pct": 20,
+    "max_single_position_pct": 20.0,
+    "mandate_notes": "High risk tolerance, wide tactical latitude."
+  },
+  {
+    "mandate_code": "ALTS",
+    "mandate_name": "Alternatives Sleeve",
+    "asset_class": "Cash and Equivalents",
+    "min_pct": 0,
+    "target_pct": 3,
+    "max_pct": 15,
+    "max_single_position_pct": 25.0,
+    "mandate_notes": "Dedicated private markets and hedge fund sleeve. Measured separately from the household strategic allocation. Max 25% in any single fund."
+  },
+  {
+    "mandate_code": "ALTS",
+    "mandate_name": "Alternatives Sleeve",
+    "asset_class": "Fixed Income",
+    "min_pct": 0,
+    "target_pct": 5,
+    "max_pct": 25,
+    "max_single_position_pct": 25.0,
+    "mandate_notes": "Dedicated private markets and hedge fund sleeve. Measured separately from the household strategic allocation. Max 25% in any single fund."
+  },
+  {
+    "mandate_code": "ALTS",
+    "mandate_name": "Alternatives Sleeve",
+    "asset_class": "Equity",
+    "min_pct": 0,
+    "target_pct": 0,
+    "max_pct": 20,
+    "max_single_position_pct": 25.0,
+    "mandate_notes": "Dedicated private markets and hedge fund sleeve. Measured separately from the household strategic allocation. Max 25% in any single fund."
+  },
+  {
+    "mandate_code": "ALTS",
+    "mandate_name": "Alternatives Sleeve",
+    "asset_class": "Alternatives",
+    "min_pct": 60,
+    "target_pct": 85,
+    "max_pct": 100,
+    "max_single_position_pct": 25.0,
+    "mandate_notes": "Dedicated private markets and hedge fund sleeve. Measured separately from the household strategic allocation. Max 25% in any single fund."
+  },
+  {
+    "mandate_code": "ALTS",
+    "mandate_name": "Alternatives Sleeve",
+    "asset_class": "Commodities",
+    "min_pct": 0,
+    "target_pct": 0,
+    "max_pct": 10,
+    "max_single_position_pct": 25.0,
+    "mandate_notes": "Dedicated private markets and hedge fund sleeve. Measured separately from the household strategic allocation. Max 25% in any single fund."
+  },
+  {
+    "mandate_code": "ALTS",
+    "mandate_name": "Alternatives Sleeve",
+    "asset_class": "Structured Products",
+    "min_pct": 0,
+    "target_pct": 0,
+    "max_pct": 15,
+    "max_single_position_pct": 25.0,
+    "mandate_notes": "Dedicated private markets and hedge fund sleeve. Measured separately from the household strategic allocation. Max 25% in any single fund."
+  },
+  {
+    "mandate_code": "SUSBAL",
+    "mandate_name": "Sustainable Balanced",
+    "asset_class": "Cash and Equivalents",
+    "min_pct": 2,
+    "target_pct": 7,
+    "max_pct": 18,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced allocation with binding exclusions: thermal coal, oil and gas exploration and production, controversial weapons, tobacco, and issuers with unresolved deforestation controversies."
+  },
+  {
+    "mandate_code": "SUSBAL",
+    "mandate_name": "Sustainable Balanced",
+    "asset_class": "Fixed Income",
+    "min_pct": 25,
+    "target_pct": 35,
+    "max_pct": 50,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced allocation with binding exclusions: thermal coal, oil and gas exploration and production, controversial weapons, tobacco, and issuers with unresolved deforestation controversies."
+  },
+  {
+    "mandate_code": "SUSBAL",
+    "mandate_name": "Sustainable Balanced",
+    "asset_class": "Equity",
+    "min_pct": 30,
+    "target_pct": 40,
+    "max_pct": 55,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced allocation with binding exclusions: thermal coal, oil and gas exploration and production, controversial weapons, tobacco, and issuers with unresolved deforestation controversies."
+  },
+  {
+    "mandate_code": "SUSBAL",
+    "mandate_name": "Sustainable Balanced",
+    "asset_class": "Alternatives",
+    "min_pct": 0,
+    "target_pct": 10,
+    "max_pct": 20,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced allocation with binding exclusions: thermal coal, oil and gas exploration and production, controversial weapons, tobacco, and issuers with unresolved deforestation controversies."
+  },
+  {
+    "mandate_code": "SUSBAL",
+    "mandate_name": "Sustainable Balanced",
+    "asset_class": "Commodities",
+    "min_pct": 0,
+    "target_pct": 3,
+    "max_pct": 10,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced allocation with binding exclusions: thermal coal, oil and gas exploration and production, controversial weapons, tobacco, and issuers with unresolved deforestation controversies."
+  },
+  {
+    "mandate_code": "SUSBAL",
+    "mandate_name": "Sustainable Balanced",
+    "asset_class": "Structured Products",
+    "min_pct": 0,
+    "target_pct": 5,
+    "max_pct": 15,
+    "max_single_position_pct": 12.0,
+    "mandate_notes": "Balanced allocation with binding exclusions: thermal coal, oil and gas exploration and production, controversial weapons, tobacco, and issuers with unresolved deforestation controversies."
+  }
+]

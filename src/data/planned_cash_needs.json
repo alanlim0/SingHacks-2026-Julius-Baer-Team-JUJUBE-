@@ -1,0 +1,222 @@
+[
+  {
+    "need_id": "CN-001",
+    "client_id": "CL-0001",
+    "description": "Deposit on Singapore residential property purchase",
+    "currency": "SGD",
+    "amount": 9000000,
+    "due_from": "2027-03-01",
+    "due_to": "2027-06-30",
+    "recurrence": "One-off",
+    "certainty": "Likely"
+  },
+  {
+    "need_id": "CN-002",
+    "client_id": "CL-0002",
+    "description": "Estimated Singapore tax on secondary share sale",
+    "currency": "USD",
+    "amount": 4200000,
+    "due_from": "2027-01-01",
+    "due_to": "2027-04-30",
+    "recurrence": "One-off",
+    "certainty": "Conditional on the sale completing"
+  },
+  {
+    "need_id": "CN-003",
+    "client_id": "CL-0002",
+    "description": "Family trust establishment and funding",
+    "currency": "USD",
+    "amount": 2000000,
+    "due_from": "2026-11-01",
+    "due_to": "2027-03-31",
+    "recurrence": "One-off",
+    "certainty": "Likely"
+  },
+  {
+    "need_id": "CN-004",
+    "client_id": "CL-0003",
+    "description": "German inheritance tax instalment",
+    "currency": "EUR",
+    "amount": 3400000,
+    "due_from": "2026-10-01",
+    "due_to": "2026-12-31",
+    "recurrence": "One-off",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-005",
+    "client_id": "CL-0004",
+    "description": "Annual retirement drawdown from Q2 2027",
+    "currency": "USD",
+    "amount": 1450000,
+    "due_from": "2027-04-01",
+    "due_to": "2045-04-01",
+    "recurrence": "Annual",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-006",
+    "client_id": "CL-0005",
+    "description": "Children's university fees, Australia",
+    "currency": "SGD",
+    "amount": 180000,
+    "due_from": "2026-09-01",
+    "due_to": "2031-09-01",
+    "recurrence": "Annual",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-007",
+    "client_id": "CL-0006",
+    "description": "US university fees, two children",
+    "currency": "USD",
+    "amount": 5000000,
+    "due_from": "2026-09-01",
+    "due_to": "2030-09-01",
+    "recurrence": "Annual instalments",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-008",
+    "client_id": "CL-0006",
+    "description": "Private equity capital calls",
+    "currency": "USD",
+    "amount": 3000000,
+    "due_from": "2026-10-01",
+    "due_to": "2028-03-31",
+    "recurrence": "Irregular",
+    "certainty": "Likely"
+  },
+  {
+    "need_id": "CN-009",
+    "client_id": "CL-0007",
+    "description": "Initial endowment of charitable foundation",
+    "currency": "USD",
+    "amount": 12000000,
+    "due_from": "2027-01-01",
+    "due_to": "2027-12-31",
+    "recurrence": "One-off",
+    "certainty": "Likely"
+  },
+  {
+    "need_id": "CN-010",
+    "client_id": "CL-0008",
+    "description": "University fees, two children",
+    "currency": "SGD",
+    "amount": 420000,
+    "due_from": "2027-01-01",
+    "due_to": "2033-01-01",
+    "recurrence": "Annual",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-011",
+    "client_id": "CL-0011",
+    "description": "Estate duty and legal costs on succession planning",
+    "currency": "SGD",
+    "amount": 2800000,
+    "due_from": "2026-12-01",
+    "due_to": "2027-12-31",
+    "recurrence": "One-off",
+    "certainty": "Likely"
+  },
+  {
+    "need_id": "CN-012",
+    "client_id": "CL-0012",
+    "description": "Living expenses and medical care",
+    "currency": "USD",
+    "amount": 1280000,
+    "due_from": "2026-01-01",
+    "due_to": "2038-01-01",
+    "recurrence": "Annual",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-013",
+    "client_id": "CL-0014",
+    "description": "Mid-Levels redevelopment equity contribution",
+    "currency": "HKD",
+    "amount": 60000000,
+    "due_from": "2026-11-01",
+    "due_to": "2027-06-30",
+    "recurrence": "One-off",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-014",
+    "client_id": "CL-0016",
+    "description": "Support for elderly parents in Japan",
+    "currency": "JPY",
+    "amount": 18000000,
+    "due_from": "2026-01-01",
+    "due_to": "2034-01-01",
+    "recurrence": "Annual",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-015",
+    "client_id": "CL-0017",
+    "description": "G3 education programme",
+    "currency": "USD",
+    "amount": 900000,
+    "due_from": "2026-09-01",
+    "due_to": "2034-09-01",
+    "recurrence": "Annual",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-016",
+    "client_id": "CL-0017",
+    "description": "Outstanding private markets commitments",
+    "currency": "USD",
+    "amount": 15800000,
+    "due_from": "2026-10-01",
+    "due_to": "2028-06-30",
+    "recurrence": "Irregular",
+    "certainty": "Confirmed"
+  },
+  {
+    "need_id": "CN-017",
+    "client_id": "CL-0019",
+    "description": "Seed capital for Singapore family office entity",
+    "currency": "USD",
+    "amount": 5000000,
+    "due_from": "2027-01-01",
+    "due_to": "2027-12-31",
+    "recurrence": "One-off",
+    "certainty": "Likely"
+  },
+  {
+    "need_id": "CN-018",
+    "client_id": "CL-0020",
+    "description": "Hong Kong property purchase",
+    "currency": "USD",
+    "amount": 3600000,
+    "due_from": "2027-04-01",
+    "due_to": "2027-12-31",
+    "recurrence": "One-off",
+    "certainty": "Likely"
+  },
+  {
+    "need_id": "CN-019",
+    "client_id": "CL-0020",
+    "description": "Healthcare foundation seed funding",
+    "currency": "USD",
+    "amount": 2500000,
+    "due_from": "2028-01-01",
+    "due_to": "2028-12-31",
+    "recurrence": "One-off",
+    "certainty": "Aspirational"
+  },
+  {
+    "need_id": "CN-020",
+    "client_id": "CL-0018",
+    "description": "Italian succession planning and notarial costs",
+    "currency": "EUR",
+    "amount": 850000,
+    "due_from": "2027-06-01",
+    "due_to": "2028-06-30",
+    "recurrence": "One-off",
+    "certainty": "Likely"
+  }
+]

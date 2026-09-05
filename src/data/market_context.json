@@ -1,0 +1,1037 @@
+[
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "SPX",
+    "series_name": "S&P 500 Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 6902.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "NASDAQ_COMP",
+    "series_name": "Nasdaq Composite Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 23150.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "MSCI_ASIA_XJP",
+    "series_name": "MSCI Asia ex-Japan Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 742.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "HSI",
+    "series_name": "Hang Seng Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 24800.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "STI",
+    "series_name": "Straits Times Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 4180.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "GOLD_USD_OZ",
+    "series_name": "Gold spot",
+    "category": "Commodity",
+    "unit": "USD/troy oz",
+    "value": 4310.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "BRENT_USD_BBL",
+    "series_name": "Brent crude",
+    "category": "Commodity",
+    "unit": "USD/barrel",
+    "value": 69.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "TTF_GAS_EUR_MWH",
+    "series_name": "Dutch TTF natural gas front-month",
+    "category": "Commodity",
+    "unit": "EUR/MWh",
+    "value": 32.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "UST_10Y_PCT",
+    "series_name": "US Treasury 10-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 4.05,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "UST_2Y_PCT",
+    "series_name": "US Treasury 2-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 3.68,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "FED_FUNDS_UPPER_PCT",
+    "series_name": "Fed funds target, upper bound",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 3.75,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "US_CPI_YOY_PCT",
+    "series_name": "US headline CPI, year-on-year",
+    "category": "Macro",
+    "unit": "percent",
+    "value": 2.7,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "VIX",
+    "series_name": "CBOE Volatility Index",
+    "category": "Volatility",
+    "unit": "points",
+    "value": 15.2,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "USDSGD",
+    "series_name": "USD/SGD",
+    "category": "FX",
+    "unit": "SGD per USD",
+    "value": 1.29,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "USDHKD",
+    "series_name": "USD/HKD",
+    "category": "FX",
+    "unit": "HKD per USD",
+    "value": 7.79,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "EURUSD",
+    "series_name": "EUR/USD",
+    "category": "FX",
+    "unit": "USD per EUR",
+    "value": 1.16,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "USDCHF",
+    "series_name": "USD/CHF",
+    "category": "FX",
+    "unit": "CHF per USD",
+    "value": 0.79,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "USDJPY",
+    "series_name": "USD/JPY",
+    "category": "FX",
+    "unit": "JPY per USD",
+    "value": 152.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "GBPUSD",
+    "series_name": "GBP/USD",
+    "category": "FX",
+    "unit": "USD per GBP",
+    "value": 1.345,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "USDCNH",
+    "series_name": "USD/CNH",
+    "category": "FX",
+    "unit": "CNH per USD",
+    "value": 7.08,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "USDIDR",
+    "series_name": "USD/IDR",
+    "category": "FX",
+    "unit": "IDR per USD",
+    "value": 16250.0,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "USDTHB",
+    "series_name": "USD/THB",
+    "category": "FX",
+    "unit": "THB per USD",
+    "value": 33.1,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2025-12-31",
+    "series_id": "USDINR",
+    "series_name": "USD/INR",
+    "category": "FX",
+    "unit": "INR per USD",
+    "value": 88.2,
+    "snapshot_label": "Year-end 2025 baseline"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "SPX",
+    "series_name": "S&P 500 Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 7180.0,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "NASDAQ_COMP",
+    "series_name": "Nasdaq Composite Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 24620.0,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "MSCI_ASIA_XJP",
+    "series_name": "MSCI Asia ex-Japan Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 760.5,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "HSI",
+    "series_name": "Hang Seng Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 25350.0,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "STI",
+    "series_name": "Straits Times Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 4265.0,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "GOLD_USD_OZ",
+    "series_name": "Gold spot",
+    "category": "Commodity",
+    "unit": "USD/troy oz",
+    "value": 5050.0,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "BRENT_USD_BBL",
+    "series_name": "Brent crude",
+    "category": "Commodity",
+    "unit": "USD/barrel",
+    "value": 72.4,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "TTF_GAS_EUR_MWH",
+    "series_name": "Dutch TTF natural gas front-month",
+    "category": "Commodity",
+    "unit": "EUR/MWh",
+    "value": 34.5,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "UST_10Y_PCT",
+    "series_name": "US Treasury 10-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 3.95,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "UST_2Y_PCT",
+    "series_name": "US Treasury 2-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 3.6,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "FED_FUNDS_UPPER_PCT",
+    "series_name": "Fed funds target, upper bound",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 3.75,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "US_CPI_YOY_PCT",
+    "series_name": "US headline CPI, year-on-year",
+    "category": "Macro",
+    "unit": "percent",
+    "value": 2.9,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "VIX",
+    "series_name": "CBOE Volatility Index",
+    "category": "Volatility",
+    "unit": "points",
+    "value": 17.8,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "USDSGD",
+    "series_name": "USD/SGD",
+    "category": "FX",
+    "unit": "SGD per USD",
+    "value": 1.31,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "USDHKD",
+    "series_name": "USD/HKD",
+    "category": "FX",
+    "unit": "HKD per USD",
+    "value": 7.8,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "EURUSD",
+    "series_name": "EUR/USD",
+    "category": "FX",
+    "unit": "USD per EUR",
+    "value": 1.145,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "USDCHF",
+    "series_name": "USD/CHF",
+    "category": "FX",
+    "unit": "CHF per USD",
+    "value": 0.8,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "USDJPY",
+    "series_name": "USD/JPY",
+    "category": "FX",
+    "unit": "JPY per USD",
+    "value": 154.0,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "GBPUSD",
+    "series_name": "GBP/USD",
+    "category": "FX",
+    "unit": "USD per GBP",
+    "value": 1.332,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "USDCNH",
+    "series_name": "USD/CNH",
+    "category": "FX",
+    "unit": "CNH per USD",
+    "value": 7.12,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "USDIDR",
+    "series_name": "USD/IDR",
+    "category": "FX",
+    "unit": "IDR per USD",
+    "value": 16400.0,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "USDTHB",
+    "series_name": "USD/THB",
+    "category": "FX",
+    "unit": "THB per USD",
+    "value": 33.5,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-02-27",
+    "series_id": "USDINR",
+    "series_name": "USD/INR",
+    "category": "FX",
+    "unit": "INR per USD",
+    "value": 88.9,
+    "snapshot_label": "Pre-conflict (last business day before 28 Feb offensive)"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "SPX",
+    "series_name": "S&P 500 Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 7050.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "NASDAQ_COMP",
+    "series_name": "Nasdaq Composite Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 23880.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "MSCI_ASIA_XJP",
+    "series_name": "MSCI Asia ex-Japan Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 727.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "HSI",
+    "series_name": "Hang Seng Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 24100.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "STI",
+    "series_name": "Straits Times Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 4110.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "GOLD_USD_OZ",
+    "series_name": "Gold spot",
+    "category": "Commodity",
+    "unit": "USD/troy oz",
+    "value": 5240.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "BRENT_USD_BBL",
+    "series_name": "Brent crude",
+    "category": "Commodity",
+    "unit": "USD/barrel",
+    "value": 104.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "TTF_GAS_EUR_MWH",
+    "series_name": "Dutch TTF natural gas front-month",
+    "category": "Commodity",
+    "unit": "EUR/MWh",
+    "value": 78.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "UST_10Y_PCT",
+    "series_name": "US Treasury 10-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 4.35,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "UST_2Y_PCT",
+    "series_name": "US Treasury 2-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 3.92,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "FED_FUNDS_UPPER_PCT",
+    "series_name": "Fed funds target, upper bound",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 3.75,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "US_CPI_YOY_PCT",
+    "series_name": "US headline CPI, year-on-year",
+    "category": "Macro",
+    "unit": "percent",
+    "value": 3.4,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "VIX",
+    "series_name": "CBOE Volatility Index",
+    "category": "Volatility",
+    "unit": "points",
+    "value": 31.4,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "USDSGD",
+    "series_name": "USD/SGD",
+    "category": "FX",
+    "unit": "SGD per USD",
+    "value": 1.335,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "USDHKD",
+    "series_name": "USD/HKD",
+    "category": "FX",
+    "unit": "HKD per USD",
+    "value": 7.815,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "EURUSD",
+    "series_name": "EUR/USD",
+    "category": "FX",
+    "unit": "USD per EUR",
+    "value": 1.115,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "USDCHF",
+    "series_name": "USD/CHF",
+    "category": "FX",
+    "unit": "CHF per USD",
+    "value": 0.815,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "USDJPY",
+    "series_name": "USD/JPY",
+    "category": "FX",
+    "unit": "JPY per USD",
+    "value": 158.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "GBPUSD",
+    "series_name": "GBP/USD",
+    "category": "FX",
+    "unit": "USD per GBP",
+    "value": 1.301,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "USDCNH",
+    "series_name": "USD/CNH",
+    "category": "FX",
+    "unit": "CNH per USD",
+    "value": 7.21,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "USDIDR",
+    "series_name": "USD/IDR",
+    "category": "FX",
+    "unit": "IDR per USD",
+    "value": 16950.0,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "USDTHB",
+    "series_name": "USD/THB",
+    "category": "FX",
+    "unit": "THB per USD",
+    "value": 34.6,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-03-31",
+    "series_id": "USDINR",
+    "series_name": "USD/INR",
+    "category": "FX",
+    "unit": "INR per USD",
+    "value": 90.4,
+    "snapshot_label": "Post-Hormuz closure"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "SPX",
+    "series_name": "S&P 500 Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 7410.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "NASDAQ_COMP",
+    "series_name": "Nasdaq Composite Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 25320.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "MSCI_ASIA_XJP",
+    "series_name": "MSCI Asia ex-Japan Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 753.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "HSI",
+    "series_name": "Hang Seng Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 24950.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "STI",
+    "series_name": "Straits Times Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 4290.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "GOLD_USD_OZ",
+    "series_name": "Gold spot",
+    "category": "Commodity",
+    "unit": "USD/troy oz",
+    "value": 4780.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "BRENT_USD_BBL",
+    "series_name": "Brent crude",
+    "category": "Commodity",
+    "unit": "USD/barrel",
+    "value": 96.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "TTF_GAS_EUR_MWH",
+    "series_name": "Dutch TTF natural gas front-month",
+    "category": "Commodity",
+    "unit": "EUR/MWh",
+    "value": 61.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "UST_10Y_PCT",
+    "series_name": "US Treasury 10-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 4.52,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "UST_2Y_PCT",
+    "series_name": "US Treasury 2-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 4.05,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "FED_FUNDS_UPPER_PCT",
+    "series_name": "Fed funds target, upper bound",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 3.75,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "US_CPI_YOY_PCT",
+    "series_name": "US headline CPI, year-on-year",
+    "category": "Macro",
+    "unit": "percent",
+    "value": 4.2,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "VIX",
+    "series_name": "CBOE Volatility Index",
+    "category": "Volatility",
+    "unit": "points",
+    "value": 22.6,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "USDSGD",
+    "series_name": "USD/SGD",
+    "category": "FX",
+    "unit": "SGD per USD",
+    "value": 1.345,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "USDHKD",
+    "series_name": "USD/HKD",
+    "category": "FX",
+    "unit": "HKD per USD",
+    "value": 7.82,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "EURUSD",
+    "series_name": "EUR/USD",
+    "category": "FX",
+    "unit": "USD per EUR",
+    "value": 1.098,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "USDCHF",
+    "series_name": "USD/CHF",
+    "category": "FX",
+    "unit": "CHF per USD",
+    "value": 0.826,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "USDJPY",
+    "series_name": "USD/JPY",
+    "category": "FX",
+    "unit": "JPY per USD",
+    "value": 161.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "GBPUSD",
+    "series_name": "GBP/USD",
+    "category": "FX",
+    "unit": "USD per GBP",
+    "value": 1.288,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "USDCNH",
+    "series_name": "USD/CNH",
+    "category": "FX",
+    "unit": "CNH per USD",
+    "value": 7.26,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "USDIDR",
+    "series_name": "USD/IDR",
+    "category": "FX",
+    "unit": "IDR per USD",
+    "value": 17200.0,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "USDTHB",
+    "series_name": "USD/THB",
+    "category": "FX",
+    "unit": "THB per USD",
+    "value": 35.1,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-06-30",
+    "series_id": "USDINR",
+    "series_name": "USD/INR",
+    "category": "FX",
+    "unit": "INR per USD",
+    "value": 91.2,
+    "snapshot_label": "Half-year 2026"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "SPX",
+    "series_name": "S&P 500 Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 7530.0,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "NASDAQ_COMP",
+    "series_name": "Nasdaq Composite Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 26010.0,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "MSCI_ASIA_XJP",
+    "series_name": "MSCI Asia ex-Japan Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 764.0,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "HSI",
+    "series_name": "Hang Seng Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 25280.0,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "STI",
+    "series_name": "Straits Times Index",
+    "category": "Equity index",
+    "unit": "points",
+    "value": 4335.0,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "GOLD_USD_OZ",
+    "series_name": "Gold spot",
+    "category": "Commodity",
+    "unit": "USD/troy oz",
+    "value": 4622.6,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "BRENT_USD_BBL",
+    "series_name": "Brent crude",
+    "category": "Commodity",
+    "unit": "USD/barrel",
+    "value": 101.5,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "TTF_GAS_EUR_MWH",
+    "series_name": "Dutch TTF natural gas front-month",
+    "category": "Commodity",
+    "unit": "EUR/MWh",
+    "value": 68.0,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "UST_10Y_PCT",
+    "series_name": "US Treasury 10-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 4.66,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "UST_2Y_PCT",
+    "series_name": "US Treasury 2-year yield",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 4.14,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "FED_FUNDS_UPPER_PCT",
+    "series_name": "Fed funds target, upper bound",
+    "category": "Rates",
+    "unit": "percent",
+    "value": 3.75,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "US_CPI_YOY_PCT",
+    "series_name": "US headline CPI, year-on-year",
+    "category": "Macro",
+    "unit": "percent",
+    "value": 4.0,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "VIX",
+    "series_name": "CBOE Volatility Index",
+    "category": "Volatility",
+    "unit": "points",
+    "value": 25.1,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "USDSGD",
+    "series_name": "USD/SGD",
+    "category": "FX",
+    "unit": "SGD per USD",
+    "value": 1.352,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "USDHKD",
+    "series_name": "USD/HKD",
+    "category": "FX",
+    "unit": "HKD per USD",
+    "value": 7.81,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "EURUSD",
+    "series_name": "EUR/USD",
+    "category": "FX",
+    "unit": "USD per EUR",
+    "value": 1.092,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "USDCHF",
+    "series_name": "USD/CHF",
+    "category": "FX",
+    "unit": "CHF per USD",
+    "value": 0.831,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "USDJPY",
+    "series_name": "USD/JPY",
+    "category": "FX",
+    "unit": "JPY per USD",
+    "value": 159.0,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "GBPUSD",
+    "series_name": "GBP/USD",
+    "category": "FX",
+    "unit": "USD per GBP",
+    "value": 1.282,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "USDCNH",
+    "series_name": "USD/CNH",
+    "category": "FX",
+    "unit": "CNH per USD",
+    "value": 7.23,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "USDIDR",
+    "series_name": "USD/IDR",
+    "category": "FX",
+    "unit": "IDR per USD",
+    "value": 17050.0,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "USDTHB",
+    "series_name": "USD/THB",
+    "category": "FX",
+    "unit": "THB per USD",
+    "value": 34.8,
+    "snapshot_label": "Current"
+  },
+  {
+    "snapshot_date": "2026-08-26",
+    "series_id": "USDINR",
+    "series_name": "USD/INR",
+    "category": "FX",
+    "unit": "INR per USD",
+    "value": 90.8,
+    "snapshot_label": "Current"
+  }
+]
