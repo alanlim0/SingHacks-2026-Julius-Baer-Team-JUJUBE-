@@ -302,123 +302,129 @@ export interface AdvisoryMemo {
 }
 
 // -------------------------------------------------------------
-// Papermark Virtual Data Room (VDR) Types
+// Core Requirement 1: Intelligent Portfolio Explanations
 // -------------------------------------------------------------
-export interface VDRDocument {
+export interface PortfolioObservation {
   id: string;
-  folderId: string;
-  title: string;
-  fileName: string;
-  fileType: "pdf" | "xlsx" | "docx" | "pptx";
-  fileSizeBytes: number;
-  pageCount: number;
-  uploadedAt: string;
-  uploadedBy: string;
-  version: number;
-  watermarkEnabled: boolean;
-  downloadAllowed: boolean;
-  status: "Active" | "Restricted" | "Pending Review" | "Expiring Soon" | "Expired";
-  docCategory?: "NDA" | "KYC" | "Lombard" | "Mandate" | "Syndicate" | "Corporate";
-  expiresAt?: string; // ISO date format YYYY-MM-DD
-  summary: string;
-  pages: {
-    pageNumber: number;
-    title: string;
-    content: string;
-    avgTimeSpentSeconds: number;
+  category: "Macro Shock" | "Holding Driver" | "Asset Class Move" | "Geopolitical Transmission";
+  headline: string;
+  narrative: string;
+  affectedHoldings: {
+    instrumentName: string;
+    ticker?: string;
+    sector: string;
+    pnlUsd: number;
+    pnlPct: number;
+    eventConnection: string;
   }[];
-  viewCount: number;
-  uniqueViewers: number;
+  clientFriendlySummary: string;
 }
 
-export interface VDRFolder {
+// -------------------------------------------------------------
+// Core Requirement 2: Proactive Risk & Opportunity Detection
+// -------------------------------------------------------------
+export interface ClientRiskRadar {
+  driftRisk: {
+    hasRisk: boolean;
+    headline: string;
+    details: string;
+    affectedAssetClasses: string[];
+  };
+  concentrationRisk: {
+    hasRisk: boolean;
+    headline: string;
+    details: string;
+    topPositions: { name: string; weightPct: number; maxAllowedPct: number }[];
+  };
+  liquidityRisk: {
+    hasRisk: boolean;
+    headline: string;
+    details: string;
+    liquidBufferUsd: number;
+    upcomingLiabilitiesUsd: number;
+    shortfallUsd: number;
+  };
+  currencyRisk: {
+    hasRisk: boolean;
+    headline: string;
+    details: string;
+    unhedgedExposures: { currency: string; weightPct: number; riskNote: string }[];
+  };
+  collateralRisk: {
+    hasRisk: boolean;
+    headline: string;
+    details: string;
+    currentLtv: number;
+    thresholdLtv: number;
+    headroomUsd: number;
+    status: "critical" | "warning" | "healthy";
+  };
+}
+
+export interface EventOpportunity {
   id: string;
-  indexCode: string; // e.g. "01", "02"
-  name: string;
+  eventDate: string;
+  marketEvent: string;
+  transmissionChannel: string;
+  affectedPortfolioImpact: string;
+  actionableIdea: string;
+  expectedBenefit: string;
+}
+
+// -------------------------------------------------------------
+// Core Requirement 3: RM Intelligence Workbench
+// -------------------------------------------------------------
+export interface PersonalisedRecommendation {
+  id: string;
+  title: string;
+  category: "Mandate Alignment" | "Risk Optimization" | "Yield Arbitrage" | "Tax & Structure" | "Liquidity Management";
+  grounding: {
+    mandate: string;
+    riskProfile: string;
+    taxPosition: string;
+    clientObjectives: string;
+  };
   description: string;
-  restricted: boolean;
-  documentsCount: number;
+  rationale: string;
+  proposedAction: string;
+  status: "Pending RM Review" | "Approved by RM" | "Shared with Client" | "Dismissed";
 }
 
-export interface VDRLink {
+export interface RebalancingSuggestion {
   id: string;
-  slug: string;
-  name: string;
-  url: string;
-  createdAt: string;
-  expiresAt: string | null;
-  requireEmail: boolean;
-  requireNda: boolean;
-  watermarkEnabled: boolean;
-  allowDownload: boolean;
-  passwordProtected: boolean;
-  password?: string;
-  viewsCount: number;
-  lastViewedAt: string | null;
-  active: boolean;
-  targetFolderId?: string; // If restricted to specific folder
+  tradeAction: "BUY" | "SELL" | "TRIM" | "REALLOCATE";
+  instrumentName: string;
+  assetClass: string;
+  currentWeightPct: number;
+  targetWeightPct: number;
+  deltaUsd: number;
+  reasoningAttached: string;
+  mandateImpact: string;
+  taxAwareNote: string;
 }
 
-export interface VDRViewerEvent {
+export interface TaxAwareOpportunity {
   id: string;
-  viewerEmail: string;
-  viewerIp: string;
-  viewerLocation: string;
-  viewerDevice: string;
-  linkId: string;
-  documentId: string;
-  documentTitle: string;
-  timestamp: string;
-  durationSeconds: number;
-  completionPct: number;
-  pagesViewed: number[];
-  watermarkSignature: string;
-  downloaded: boolean;
-  ndaSigned: boolean;
+  strategyName: string;
+  jurisdiction: string;
+  currentStructureIssue: string;
+  optimisationMechanism: string;
+  taxEfficiencyGain: string;
+  rmActionStep: string;
 }
 
-export interface VDRQnAItem {
-  id: string;
-  documentId?: string;
-  documentTitle?: string;
-  askedByEmail: string;
-  askedAt: string;
-  question: string;
-  status: "Open" | "In Review" | "Answered";
-  answeredBy?: string;
-  answeredAt?: string;
-  answer?: string;
-}
-
-export interface VDRAuditLog {
-  id: string;
-  timestamp: string;
-  userOrEmail: string;
-  action: "VIEW_PAGE" | "SIGN_NDA" | "CREATE_LINK" | "UPDATE_PERMISSIONS" | "DOWNLOAD_FILE" | "REVOKE_ACCESS" | "ASK_QNA";
-  details: string;
-  ipAddress: string;
-  riskRating: "Low" | "Medium" | "High";
-}
-
-export interface VDRDataRoom {
-  id: string;
-  clientId?: string;
-  clientName?: string;
-  name: string;
-  slug: string;
-  dealType: "Private Wealth Mandate" | "M&A Due Diligence" | "Lombard Credit Facility" | "Private Equity Co-Investment";
-  status: "Active" | "Archived" | "Draft";
-  ndaText: string;
-  totalDocuments: number;
-  totalSizeMb: number;
-  totalViews: number;
-  avgCompletionPct: number;
-  folders: VDRFolder[];
-  documents: VDRDocument[];
-  links: VDRLink[];
-  viewers: VDRViewerEvent[];
-  qnaItems: VDRQnAItem[];
-  auditLogs: VDRAuditLog[];
+export interface LifeEventPlan {
+  pillar: "Retirement & Decumulation" | "Business Sale / Pre-Liquidity" | "Philanthropy & Foundations" | "Next-Gen Education & Trust" | "Family Succession & Governance";
+  isRelevant: boolean;
+  status: "Immediate Focus" | "Medium Term (1-3 yrs)" | "Long Term (5+ yrs)" | "Routine";
+  clientContext: string;
+  actionChecklist: {
+    step: string;
+    timeframe: string;
+    completed: boolean;
+    rmNotes: string;
+  }[];
+  recommendedVehicles: string[];
 }
 
 

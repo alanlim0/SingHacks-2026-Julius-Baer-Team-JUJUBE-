@@ -1,21 +1,15 @@
 import React, { useState } from "react";
 import {
-  AlertTriangle,
-  ArrowUpRight,
-  ArrowDownRight,
-  Filter,
-  CheckCircle2,
-  Calendar,
-  Zap,
-  TrendingUp,
-  FileText,
-  Clock,
-  Sparkles,
   Search,
-  ChevronRight,
+  X,
+  ArrowUpRight,
+  User,
+  Building2,
   Shield,
+  TrendingUp,
 } from "lucide-react";
 import { PriorityClientItem, EventLogEntry } from "../types";
+import { ClientRiskGauge } from "./RiskMeter";
 
 interface MorningBriefingProps {
   priorityList: PriorityClientItem[];
@@ -26,261 +20,233 @@ interface MorningBriefingProps {
 
 export const MorningBriefing: React.FC<MorningBriefingProps> = ({
   priorityList,
-  eventLog,
   onSelectClient,
-  onOpenMeetingPrep,
 }) => {
-  const [filterType, setFilterType] = useState<string>("all");
-  const [bookingCentreFilter, setBookingCentreFilter] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [bookingCentreFilter, setBookingCentreFilter] = useState<string>("all");
 
-  // Key metrics
+  // Total Relationship AUM across book
   const totalAum = priorityList.reduce((sum, item) => sum + item.client.total_aum_usd, 0);
-  const criticalItems = priorityList.filter((item) => item.urgencyLevel === "Critical");
-  const highItems = priorityList.filter((item) => item.urgencyLevel === "High");
-  const marginAlerts = priorityList.filter(
-    (item) => item.keyRisks.marginRisk && item.keyRisks.marginRisk.status !== "healthy"
-  );
-  const governanceBreaches = priorityList.filter(
-    (item) => item.keyRisks.sustainabilityBreaches && item.keyRisks.sustainabilityBreaches.length > 0
-  );
 
-  // Filter list
+  // Filter clients by search query (Client Name) and optional desk
   const filteredList = priorityList.filter((item) => {
     if (bookingCentreFilter !== "all" && item.client.booking_centre !== bookingCentreFilter) {
       return false;
     }
     if (searchQuery.trim() !== "") {
-      const q = searchQuery.toLowerCase();
+      const q = searchQuery.toLowerCase().trim();
       const matchName = item.client.client_name.toLowerCase().includes(q);
       const matchId = item.client.client_id.toLowerCase().includes(q);
-      const matchTrig = item.primaryTriggers.some((t) => t.toLowerCase().includes(q));
-      if (!matchName && !matchId && !matchTrig) return false;
+      return matchName || matchId;
     }
-    if (filterType === "critical") return item.urgencyLevel === "Critical";
-    if (filterType === "needs-action") return item.urgencyLevel === "Critical" || item.urgencyLevel === "High";
-    if (filterType === "margin") return item.keyRisks.marginRisk?.status !== "healthy";
-    if (filterType === "mandate") return (item.keyRisks.sustainabilityBreaches?.length ?? 0) > 0 || (item.keyRisks.mandateDrifts?.length ?? 0) > 0;
-    if (filterType === "tax") return item.keyRisks.taxMismatch;
     return true;
   });
 
   return (
     <div className="space-y-6">
-      {/* Calm Executive Greeting Banner */}
+      {/* Calm Executive Header */}
       <div className="bg-white p-6 sm:p-8 border border-[#E5E5E1] rounded-sm shadow-xs text-[#1A1A1A]">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center space-x-2 text-[10px] font-semibold text-[#C5A059] tracking-widest uppercase mb-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
-              <span>Daily Advisory Intelligence Queue</span>
-              <span className="text-[#70706B]">• 26 August 2026</span>
+              <span>Julius Baer Relationship Management</span>
+              <span className="text-[#70706B]">• Priscilla Ong</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-light text-[#1A1A1A] tracking-tight">
               Good morning, Priscilla.
             </h2>
             <p className="text-xs sm:text-sm text-[#70706B] mt-1.5 max-w-2xl leading-relaxed">
-              You have <span className="text-[#B91C1C] font-semibold">{criticalItems.length} critical client alerts</span> and{" "}
-              <span className="text-[#C5A059] font-semibold">{highItems.length} high-priority discussions</span> requiring
-              preparation before upcoming meetings this fortnight.
+              Search a client name below to inspect visual AUM allocations, required actions, and tailored upselling opportunities across your <strong>${(totalAum / 1e6).toFixed(1)}M</strong> book.
             </p>
           </div>
 
-          {/* Clean 4-Metric Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div className="bg-[#FDFDFB] border border-[#E5E5E1] p-3.5 rounded-sm text-center shadow-2xs">
-              <div className="text-[10px] uppercase tracking-widest text-[#70706B]">Book AUM</div>
-              <div className="text-lg font-light text-[#1A1A1A] mt-0.5">
-                ${(totalAum / 1e6).toFixed(1)}M
-              </div>
-              <div className="text-[10px] text-[#70706B] mt-0.5">20 Accounts</div>
+          <div className="flex items-center space-x-3 bg-[#FDFDFB] border border-[#E5E5E1] px-4 py-3 rounded-sm shadow-2xs">
+            <div className="text-right">
+              <span className="text-[10px] uppercase tracking-wider text-[#70706B] block">Total Book AUM</span>
+              <span className="text-lg font-light text-[#1A1A1A]">${(totalAum / 1e6).toFixed(1)}M USD</span>
             </div>
-
-            <div className="bg-[#FDFDFB] border border-[#E5E5E1] p-3.5 rounded-sm text-center shadow-2xs">
-              <div className="text-[10px] uppercase tracking-widest text-[#70706B]">Critical Actions</div>
-              <div className="text-lg font-light text-[#B91C1C] mt-0.5">
-                {criticalItems.length}
-              </div>
-              <div className="text-[10px] text-[#B91C1C] mt-0.5 font-medium">Require Call</div>
-            </div>
-
-            <div className="bg-[#FDFDFB] border border-[#E5E5E1] p-3.5 rounded-sm text-center shadow-2xs">
-              <div className="text-[10px] uppercase tracking-widest text-[#70706B]">Margin Alerts</div>
-              <div className="text-lg font-light text-[#C5A059] mt-0.5">
-                {marginAlerts.length}
-              </div>
-              <div className="text-[10px] text-[#8C6D23] mt-0.5">Lombard LTV</div>
-            </div>
-
-            <div className="bg-[#FDFDFB] border border-[#E5E5E1] p-3.5 rounded-sm text-center shadow-2xs">
-              <div className="text-[10px] uppercase tracking-widest text-[#70706B]">Mandate Drift</div>
-              <div className="text-lg font-light text-[#1A1A1A] mt-0.5">
-                {governanceBreaches.length}
-              </div>
-              <div className="text-[10px] text-[#70706B] mt-0.5">Exclusion Check</div>
+            <div className="h-8 w-px bg-[#E5E5E1]" />
+            <div className="text-left">
+              <span className="text-[10px] uppercase tracking-wider text-[#70706B] block">Relationships</span>
+              <span className="text-lg font-light text-[#1A1A1A]">{priorityList.length} Accounts</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Filter & Search Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-white p-3.5 border border-[#E5E5E1] rounded-sm shadow-xs">
-        <div className="flex flex-wrap items-center gap-1.5">
-          {[
-            { id: "all", label: "All Clients (20)" },
-            { id: "needs-action", label: `Needs Action (${criticalItems.length + highItems.length})` },
-            { id: "critical", label: `Critical Only (${criticalItems.length})` },
-            { id: "margin", label: `Margin Alerts (${marginAlerts.length})` },
-            { id: "mandate", label: "Mandate / ESG" },
-            { id: "tax", label: "Tax Domicile" },
-          ].map((btn) => (
-            <button
-              key={btn.id}
-              onClick={() => setFilterType(btn.id)}
-              className={`px-3 py-1 text-xs uppercase tracking-wider rounded-sm transition-all cursor-pointer ${
-                filterType === btn.id
-                  ? "bg-[#1A1A1A] text-white font-semibold shadow-xs"
-                  : "bg-[#FDFDFB] text-[#70706B] border border-[#E5E5E1] hover:text-[#1A1A1A] hover:border-[#D1D1CC] font-medium"
-              }`}
-            >
-              {btn.label}
-            </button>
-          ))}
-        </div>
-
-        <div className="flex items-center space-x-2">
-          <select
-            aria-label="Filter by Desk"
-            value={bookingCentreFilter}
-            onChange={(e) => setBookingCentreFilter(e.target.value)}
-            className="text-xs bg-[#FDFDFB] border border-[#E5E5E1] rounded-sm px-2.5 py-1.5 text-[#1A1A1A] focus:outline-none focus:border-[#C5A059]"
-          >
-            <option value="all">All Desks (SG &amp; HK)</option>
-            <option value="Singapore">Singapore Desk</option>
-            <option value="Hong Kong">Hong Kong Desk</option>
-          </select>
-
-          <div className="relative">
-            <Search className="w-3.5 h-3.5 text-[#70706B] absolute left-2.5 top-2.5" />
+      {/* Client Name Search Bar (Queue and categories completely removed) */}
+      <div className="bg-white p-4 sm:p-5 rounded-sm border border-[#E5E5E1] shadow-xs space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          {/* Prominent Search Input */}
+          <div className="relative flex-1">
+            <Search className="w-4 h-4 text-[#70706B] absolute left-3.5 top-3.5" />
             <input
               type="text"
-              placeholder="Search client or trigger..."
+              placeholder="Search client name (e.g. Alexander, Victoria, Jonathan, Chen, Lee)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="text-xs bg-[#FDFDFB] border border-[#E5E5E1] rounded-sm pl-8 pr-3 py-1.5 text-[#1A1A1A] placeholder-[#70706B] focus:outline-none focus:border-[#C5A059] w-48"
+              className="w-full text-sm bg-[#FDFDFB] border border-[#E5E5E1] rounded-sm pl-10 pr-10 py-2.5 text-[#1A1A1A] placeholder-[#70706B] focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] transition-all"
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-3 text-[#70706B] hover:text-[#1A1A1A] cursor-pointer"
+                title="Clear search"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
+
+          {/* Desk Filter */}
+          <div className="flex items-center space-x-2 shrink-0">
+            <Building2 className="w-4 h-4 text-[#70706B]" />
+            <select
+              aria-label="Filter by Booking Desk"
+              value={bookingCentreFilter}
+              onChange={(e) => setBookingCentreFilter(e.target.value)}
+              className="text-xs bg-[#FDFDFB] border border-[#E5E5E1] rounded-sm px-3 py-2.5 text-[#1A1A1A] focus:outline-none focus:border-[#C5A059] cursor-pointer"
+            >
+              <option value="all">All Booking Desks</option>
+              <option value="Singapore">Singapore Desk</option>
+              <option value="Hong Kong">Hong Kong Desk</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Search Results Summary */}
+        <div className="flex items-center justify-between text-xs text-[#70706B] pt-1 border-t border-[#F0F0EE]">
+          <span>
+            {searchQuery ? (
+              <>
+                Found <strong className="text-[#1A1A1A]">{filteredList.length}</strong> {filteredList.length === 1 ? "client" : "clients"} matching "{searchQuery}"
+              </>
+            ) : (
+              <>Showing all <strong className="text-[#1A1A1A]">{filteredList.length}</strong> client relationships</>
+            )}
+          </span>
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="text-[#8C6D23] hover:underline cursor-pointer font-medium"
+            >
+              Reset Search
+            </button>
+          )}
         </div>
       </div>
 
-      {/* Priority Client Queue Cards */}
-      <div className="space-y-3">
-        {filteredList.map((item, index) => {
-          const { client, urgencyLevel, primaryTriggers, recommendedAction, ytdReturnPct } = item;
-          const isCritical = urgencyLevel === "Critical";
-          const isHigh = urgencyLevel === "High";
+      {/* Clean Client Directory Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {filteredList.map((item) => {
+          const { client, ytdReturnPct } = item;
+          const initials = client.client_name
+            .split(" ")
+            .map((n) => n[0])
+            .slice(0, 2)
+            .join("");
 
           return (
             <div
               key={client.client_id}
-              className={`bg-white rounded-sm border transition-all hover:border-[#D1D1CC] shadow-xs p-5 ${
-                isCritical
-                  ? "border-l-4 border-l-[#B91C1C] border-y-[#E5E5E1] border-r-[#E5E5E1]"
-                  : isHigh
-                  ? "border-l-4 border-l-[#C5A059] border-y-[#E5E5E1] border-r-[#E5E5E1]"
-                  : "border-[#E5E5E1]"
-              }`}
+              onClick={() => onSelectClient(client.client_id)}
+              className="bg-white p-5 rounded-sm border border-[#E5E5E1] hover:border-[#C5A059] transition-all shadow-xs hover:shadow-sm cursor-pointer flex flex-col justify-between group"
             >
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                {/* Left: Client Demographics */}
-                <div className="flex items-start space-x-3.5 min-w-[280px]">
-                  <div
-                    className={`w-9 h-9 rounded-sm flex flex-col items-center justify-center font-bold text-xs shrink-0 ${
-                      isCritical
-                        ? "bg-[#B91C1C] text-white"
-                        : isHigh
-                        ? "bg-[#C5A059] text-white"
-                        : "bg-[#F4F4F1] text-[#1A1A1A] border border-[#E5E5E1]"
-                    }`}
-                  >
-                    <span className="text-[8px] uppercase tracking-wider font-mono opacity-80">Rank</span>
-                    <span className="text-xs font-bold leading-none">#{index + 1}</span>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center space-x-2">
-                      <h3
-                        onClick={() => onSelectClient(client.client_id)}
-                        className="text-base font-semibold text-[#1A1A1A] hover:text-[#C5A059] cursor-pointer transition-colors"
-                      >
+              <div className="space-y-3">
+                {/* Client Header & Identity */}
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-sm bg-[#1A1A1A] text-[#C5A059] flex items-center justify-center font-bold text-sm tracking-wider shadow-xs shrink-0 group-hover:bg-[#C5A059] group-hover:text-white transition-colors">
+                      {initials}
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[#1A1A1A] group-hover:text-[#8C6D23] transition-colors">
                         {client.client_name}
                       </h3>
-                      <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#FDFDFB] text-[#70706B] border border-[#E5E5E1]">
-                        {client.wealth_band}
-                      </span>
-                      <span className="text-xs text-[#70706B]">
-                        {client.booking_centre} Desk
-                      </span>
-                    </div>
-
-                    <div className="flex items-center space-x-3 text-xs text-[#70706B] mt-1">
-                      <span>AUM: <strong className="text-[#1A1A1A]">${(client.total_aum_usd / 1e6).toFixed(1)}M</strong></span>
-                      <span className="text-[#E5E5E1]">•</span>
-                      <span className={`font-semibold flex items-center ${ytdReturnPct >= 0 ? "text-[#2D8A39]" : "text-[#B91C1C]"}`}>
-                        {ytdReturnPct >= 0 ? <ArrowUpRight className="w-3 h-3 mr-0.5" /> : <ArrowDownRight className="w-3 h-3 mr-0.5" />}
-                        {ytdReturnPct >= 0 ? "+" : ""}{ytdReturnPct.toFixed(1)}% YTD
-                      </span>
-                      <span className="text-[#E5E5E1]">•</span>
-                      <span>Risk: {client.risk_profile}</span>
+                      <div className="flex items-center space-x-2 text-xs text-[#70706B] mt-0.5">
+                        <span className="font-mono text-[11px]">{client.client_id}</span>
+                        <span>•</span>
+                        <span>{client.booking_centre} Desk</span>
+                      </div>
                     </div>
                   </div>
+
+                  <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#FDFDFB] text-[#70706B] border border-[#E5E5E1]">
+                    {client.wealth_band}
+                  </span>
                 </div>
 
-                {/* Center: Issue & Recommended Action in Plain English */}
-                <div className="flex-1 lg:px-6 border-y lg:border-y-0 lg:border-x border-[#F0F0EE] py-2 lg:py-0 space-y-1.5">
-                  <div className="text-xs">
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-[#70706B] block">
-                      Why Attention is Needed
+                {/* Metrics Breakdown: Visual AUM & Return */}
+                <div className="grid grid-cols-3 gap-2 pt-2 border-t border-[#F0F0EE] text-xs">
+                  <div className="p-2 bg-[#FDFDFB] rounded-sm border border-[#E5E5E1]">
+                    <span className="text-[9px] uppercase tracking-wider text-[#70706B] block">
+                      AUM
                     </span>
-                    <p className="text-[#1A1A1A] font-medium leading-relaxed">
-                      {primaryTriggers[0] || "Routine portfolio review & strategic rebalancing check."}
-                    </p>
+                    <span className="font-semibold text-[#1A1A1A] text-sm block mt-0.5">
+                      ${(client.total_aum_usd / 1e6).toFixed(1)}M
+                    </span>
                   </div>
 
-                  <div className="text-xs text-[#70706B]">
-                    <span className="font-semibold text-[#1A1A1A]">Recommended Action: </span>
-                    <span>{recommendedAction}</span>
+                  <div className="p-2 bg-[#FDFDFB] rounded-sm border border-[#E5E5E1]">
+                    <span className="text-[9px] uppercase tracking-wider text-[#70706B] block">
+                      YTD Return
+                    </span>
+                    <span
+                      className={`font-semibold text-sm block mt-0.5 ${
+                        ytdReturnPct >= 0 ? "text-[#2D8A39]" : "text-[#B91C1C]"
+                      }`}
+                    >
+                      {ytdReturnPct >= 0 ? "+" : ""}
+                      {ytdReturnPct.toFixed(1)}%
+                    </span>
+                  </div>
+
+                  <div className="p-2 bg-[#FDFDFB] rounded-sm border border-[#E5E5E1]">
+                    <span className="text-[9px] uppercase tracking-wider text-[#70706B] block">
+                      Risk Profile
+                    </span>
+                    <span className="font-semibold text-[#1A1A1A] text-xs block mt-1 truncate" title={client.risk_profile}>
+                      {client.risk_profile}
+                    </span>
                   </div>
                 </div>
+              </div>
 
-                {/* Right: Primary Action Button */}
-                <div className="lg:w-48 shrink-0 flex items-center justify-end space-x-2">
-                  <button
-                    onClick={() => onSelectClient(client.client_id)}
-                    className="w-full py-2 px-3 bg-[#1A1A1A] hover:bg-[#333333] text-white rounded-sm text-xs uppercase tracking-wider font-semibold transition-colors cursor-pointer text-center flex items-center justify-center space-x-1.5 shadow-xs"
-                  >
-                    <span>Open Briefing</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" />
-                  </button>
-                </div>
+              {/* Bottom Card Action */}
+              <div className="pt-3 mt-3 border-t border-[#F0F0EE] flex items-center justify-between">
+                <span className="text-[11px] text-[#70706B]">
+                  Horizon: {client.investment_horizon_years} yrs • Domicile: {client.tax_domicile}
+                </span>
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onSelectClient(client.client_id);
+                  }}
+                  className="px-3 py-1.5 bg-[#1A1A1A] group-hover:bg-[#C5A059] text-white text-xs font-semibold rounded-sm flex items-center space-x-1.5 transition-colors cursor-pointer shadow-xs"
+                >
+                  <span>Open Client</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
               </div>
             </div>
           );
         })}
 
         {filteredList.length === 0 && (
-          <div className="bg-white rounded-sm p-10 text-center text-[#70706B] border border-[#E5E5E1]">
-            <CheckCircle2 className="w-8 h-8 mx-auto text-[#70706B] mb-2" />
-            <p className="text-sm font-medium text-[#1A1A1A]">No clients match this filter.</p>
+          <div className="col-span-2 p-10 bg-white rounded-sm border border-[#E5E5E1] text-center space-y-3">
+            <User className="w-8 h-8 text-[#70706B] mx-auto opacity-50" />
+            <h4 className="text-sm font-semibold text-[#1A1A1A]">
+              No clients found matching "{searchQuery}"
+            </h4>
+            <p className="text-xs text-[#70706B] max-w-sm mx-auto">
+              Please check the spelling or clear your search to view all 20 relationship accounts.
+            </p>
             <button
-              onClick={() => {
-                setFilterType("all");
-                setBookingCentreFilter("all");
-                setSearchQuery("");
-              }}
-              className="mt-2 text-xs uppercase tracking-wider font-semibold text-[#C5A059] hover:underline cursor-pointer"
+              onClick={() => setSearchQuery("")}
+              className="px-4 py-2 bg-[#1A1A1A] text-white text-xs font-semibold rounded-sm hover:bg-[#333333] transition-colors cursor-pointer shadow-xs"
             >
-              Reset filters
+              Show All Clients
             </button>
           </div>
         )}

@@ -34,6 +34,10 @@ import {
   EventLogEntry,
   PriorityClientItem,
 } from "../types";
+import { RMQuickActionMenu } from "./RMQuickActionMenu";
+import { ClientRiskGauge, LombardLtvMeter } from "./RiskMeter";
+import { AllocationComparison } from "./AllocationComparison";
+import { ClientOverview } from "./ClientOverview";
 import {
   clients,
   portfoliosByClientId,
@@ -55,7 +59,6 @@ interface ClientWorkspaceProps {
   onSelectClient: (clientId: string) => void;
   priorityItem?: PriorityClientItem;
   eventLog: EventLogEntry[];
-  onOpenVDR?: () => void;
 }
 
 interface AdvisoryMemo {
@@ -78,9 +81,8 @@ export const ClientWorkspace: React.FC<ClientWorkspaceProps> = ({
   onSelectClient,
   priorityItem,
   eventLog,
-  onOpenVDR,
 }) => {
-  const [activeTab, setActiveTab] = useState<"briefing" | "portfolio" | "credit" | "stress" | "notes">("briefing");
+  const [activeTab, setActiveTab] = useState<"overview" | "briefing" | "portfolio" | "credit" | "stress" | "notes">("overview");
   const [copied, setCopied] = useState<boolean>(false);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [selectedScenarioId, setSelectedScenarioId] = useState<string>(PREDEFINED_SCENARIOS[1].id);
@@ -106,10 +108,14 @@ export const ClientWorkspace: React.FC<ClientWorkspaceProps> = ({
     () => plannedCashNeedsByClientId.get(client.client_id) || [],
     [client.client_id]
   );
-  const clientNotes = useMemo(
-    () => rmNotesByClientId.get(client.client_id) || [],
-    [client.client_id]
-  );
+  const [additionalNotes, setAdditionalNotes] = useState<Record<string, RMNote[]>>({});
+
+  const clientNotes = useMemo(() => {
+    const base = rmNotesByClientId.get(client.client_id) || [];
+    const added = additionalNotes[client.client_id] || [];
+    return [...added, ...base];
+  }, [client.client_id, additionalNotes]);
+
   const clientHoldings = useMemo(
     () => holdings.filter((h) => h.client_id === client.client_id && h.snapshot_date === TODAY_SNAPSHOT),
     [client.client_id]
@@ -131,6 +137,18 @@ export const ClientWorkspace: React.FC<ClientWorkspaceProps> = ({
 
   // Memo generation state
   const [generatedMemo, setGeneratedMemo] = useState<AdvisoryMemo | null>(null);
+
+  const handleLogCall = (note: RMNote) => {
+    setAdditionalNotes((prev) => ({
+      ...prev,
+      [client.client_id]: [note, ...(prev[client.client_id] || [])],
+    }));
+  };
+
+  const handleDraftReview = () => {
+    setActiveTab("briefing");
+    generateDefaultMemo(client, priorityItem);
+  };
 
   // Chat copilot state
   const [chatMessages, setChatMessages] = useState<
@@ -368,8 +386,8 @@ Governance: ${generatedMemo.governanceNotes}
             </div>
           </div>
 
-          {/* Quick Metrics & VDR Action */}
-          <div className="flex flex-wrap items-center gap-3 text-xs">
+          {/* Quick Metrics & Interactive Visual Risk Gauges */}
+          <div className="flex flex-wrap items-center gap-4 text-xs">
             <div className="bg-[#FDFDFB] border border-[#E5E5E1] px-3.5 py-2 rounded-sm shadow-2xs">
               <span className="text-[10px] uppercase tracking-wider text-[#70706B] block">Relationship AUM</span>
               <span className="text-base font-light text-[#1A1A1A]">
@@ -385,15 +403,30 @@ Governance: ${generatedMemo.governanceNotes}
               </span>
             </div>
 
-            {onOpenVDR && (
-              <button
-                onClick={onOpenVDR}
-                className="px-3 py-2 bg-[#FAF7F0] hover:bg-[#F2ECE0] text-[#8C6D23] border border-[#E9DFCB] rounded-sm text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer flex items-center space-x-1.5 shadow-2xs self-stretch"
-                title="Open client's Papermark Virtual Data Room"
-              >
-                <Shield className="w-3.5 h-3.5 text-[#C5A059]" />
-                <span>Open Papermark VDR</span>
-              </button>
+            {/* Visual Client Risk Tolerance Gauge */}
+            <div className="bg-[#FDFDFB] border border-[#E5E5E1] px-3.5 py-1.5 rounded-sm shadow-2xs flex items-center">
+              <ClientRiskGauge
+                score={client.risk_tolerance_score}
+                riskProfile={client.risk_profile}
+                size="sm"
+                showLabel={true}
+              />
+            </div>
+
+            {/* Visual Lombard LTV Meter (if facility present) */}
+            {priorityItem?.keyRisks.marginRisk ? (
+              <div className="bg-[#FDFDFB] border border-[#E5E5E1] px-3.5 py-1.5 rounded-sm shadow-2xs flex items-center">
+                <LombardLtvMeter
+                  currentLtv={priorityItem.keyRisks.marginRisk.currentLtv}
+                  marginCallThreshold={priorityItem.keyRisks.marginRisk.threshold}
+                  size="sm"
+                />
+              </div>
+            ) : (
+              <div className="bg-[#FDFDFB] border border-[#E5E5E1] px-3 py-2 rounded-sm shadow-2xs text-center">
+                <span className="text-[10px] uppercase tracking-wider text-[#70706B] block">Credit Facility</span>
+                <span className="text-xs text-[#70706B] font-mono">Unleveraged</span>
+              </div>
             )}
           </div>
         </div>
@@ -407,7 +440,7 @@ Governance: ${generatedMemo.governanceNotes}
             {hasMarginAlert && (
               <span className="px-2.5 py-1 rounded-sm bg-[#FEF2F2] text-[#991B1B] border border-[#FECACA] font-medium flex items-center">
                 <AlertTriangle className="w-3 h-3 mr-1 text-[#DC2626]" />
-                Lombard LTV {priorityItem?.keyRisks.marginRisk?.currentLtv.toFixed(1)}% (Margin Call at {priorityItem?.keyRisks.marginRisk?.threshold}%)
+                Lombard LTV {priorityItem?.keyRisks.marginRisk?.currentLtv != null ? priorityItem.keyRisks.marginRisk.currentLtv.toFixed(1) : (clientFacilities[0]?.["ltv_pct_2026-08-26"] ?? 0).toFixed(1)}% (Margin Call at {priorityItem?.keyRisks.marginRisk?.threshold ?? 70}%)
               </span>
             )}
             {hasMandateBreach && (
@@ -427,6 +460,7 @@ Governance: ${generatedMemo.governanceNotes}
         {/* Clean Workspace Tabs */}
         <div className="flex space-x-1 mt-4 pt-3 border-t border-[#F0F0EE] overflow-x-auto">
           {[
+            { id: "overview", label: "Overview: AUM • Actions • Upselling", icon: TrendingUp },
             { id: "briefing", label: "Meeting Briefing & Talking Points", icon: Sparkles },
             { id: "portfolio", label: "Portfolio & Holdings Look-Through", icon: PieChartIcon },
             { id: "credit", label: "Lombard Credit & Mandates", icon: Shield },
@@ -453,7 +487,20 @@ Governance: ${generatedMemo.governanceNotes}
         </div>
       </div>
 
-      {/* SUB-VIEW 1: Meeting Briefing & Copilot (Default) */}
+      {/* SUB-VIEW 0: Visual AUM, Actions Needed, Upselling Opportunities (Default) */}
+      {activeTab === "overview" && (
+        <ClientOverview
+          client={client}
+          priorityItem={priorityItem}
+          holdings={clientHoldings}
+          facilities={clientFacilities}
+          cashNeeds={clientCashNeeds}
+          commitments={clientCommitments}
+          onNavigateTab={(tab) => setActiveTab(tab)}
+        />
+      )}
+
+      {/* SUB-VIEW 1: Meeting Briefing & Copilot */}
       {activeTab === "briefing" && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left Column: Ready-to-Use Advisory Memo */}
@@ -651,35 +698,13 @@ Governance: ${generatedMemo.governanceNotes}
       {/* SUB-VIEW 2: Portfolio & Holdings Look-Through */}
       {activeTab === "portfolio" && (
         <div className="space-y-6">
-          {/* Asset Allocation Bar */}
-          <div className="bg-white p-5 rounded-sm border border-[#E5E5E1] shadow-xs space-y-3">
-            <h3 className="text-xs uppercase tracking-widest text-[#70706B] font-semibold">
-              Asset Class Allocation (Total: USD {(client.total_aum_usd / 1e6).toFixed(1)}M)
-            </h3>
-            <div className="flex h-3 w-full rounded-sm overflow-hidden bg-[#F0F0EE]">
-              {assetClassTotals.map((ac, idx) => {
-                const colors = ["#1A1A1A", "#C5A059", "#70706B", "#D1D1CC", "#8C6D23", "#4A5568"];
-                return (
-                  <div
-                    key={idx}
-                    style={{ width: `${ac.pct}%`, backgroundColor: colors[idx % colors.length] }}
-                    title={`${ac.name}: ${ac.pct.toFixed(1)}%`}
-                  />
-                );
-              })}
-            </div>
-            <div className="flex flex-wrap gap-4 pt-1 text-xs">
-              {assetClassTotals.map((ac, idx) => (
-                <div key={idx} className="flex items-center space-x-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#1A1A1A]" />
-                  <span className="text-[#70706B]">{ac.name}:</span>
-                  <span className="font-semibold text-[#1A1A1A]">
-                    {ac.pct.toFixed(1)}% (${(ac.value / 1e6).toFixed(1)}M)
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Paired Pie Charts: Ideal Allocation vs Current Allocation */}
+          <AllocationComparison
+            clientId={client.client_id}
+            onTradeRebalance={() => {
+              setActiveTab("notes");
+            }}
+          />
 
           {/* Holdings Table with Look-Through */}
           <div className="bg-white rounded-sm border border-[#E5E5E1] shadow-xs overflow-hidden">
@@ -995,6 +1020,13 @@ Governance: ${generatedMemo.governanceNotes}
           </div>
         </div>
       )}
+
+      {/* Floating Speed-Dial Quick Action Menu */}
+      <RMQuickActionMenu
+        client={client}
+        onLogCall={handleLogCall}
+        onDraftReview={handleDraftReview}
+      />
     </div>
   );
 };

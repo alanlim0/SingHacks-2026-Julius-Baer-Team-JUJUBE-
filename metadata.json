@@ -1,6 +1,6 @@
 {
   "name": "Julius Baer — Wealth Intelligence",
-  "description": "AI-powered wealth advisory workbench and Papermark Virtual Data Room (VDR) featuring secure document sharing, dynamic forensic watermarking, NDA enforcement, and page-by-page viewer analytics.",
+  "description": "JUJUBE OS by Julius Baer: Relationship Manager workbench featuring daily priority agenda with action triggers, desk risk radar with look-through pie charts, and portfolio intelligence.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

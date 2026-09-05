@@ -325,6 +325,140 @@ ${question}`;
     }
   });
 
+  // AI Smart Document Categorization & Compliance Tagging endpoint
+  app.post("/api/vdr-smart-categorize", async (req, res) => {
+    const { title, fileName, summary, content } = req.body;
+
+    if (!title && !summary && !content) {
+      return res.status(400).json({ error: "Document title or content required" });
+    }
+
+    const textToClassify = `${title || ""} ${fileName || ""} ${summary || ""} ${content || ""}`.toLowerCase();
+
+    // Deterministic classifier rulebook
+    let category: string = "Corporate";
+    let confidence = 0.92;
+    let complianceStatus = "Verified";
+    let rationale = "Classified based on standard corporate documentation and entity records.";
+    let tags: string[] = ["Corporate-Record"];
+    let governingLaw = "Singapore";
+
+    if (textToClassify.includes("nda") || textToClassify.includes("non-disclosure") || textToClassify.includes("confidentiality")) {
+      category = "NDA";
+      confidence = 0.98;
+      complianceStatus = "Verified";
+      rationale = "Contains bilateral confidentiality undertaking, permitted disclosure exceptions, and SIAC arbitration clauses.";
+      tags = ["Bilateral-NDA", "SIAC-Governed", "Annual-Renewal"];
+      governingLaw = "Singapore (SIAC)";
+    } else if (textToClassify.includes("kyc") || textToClassify.includes("aml") || textToClassify.includes("source of wealth") || textToClassify.includes("pep") || textToClassify.includes("fatca")) {
+      category = "KYC";
+      confidence = 0.97;
+      complianceStatus = "Verified";
+      rationale = "MAS Notice 626 client due diligence dossier containing verified beneficial ownership and tax compliance self-certifications.";
+      tags = ["MAS-626", "Source-of-Wealth", "Non-PEP", "CRS-FATCA"];
+      governingLaw = "Monetary Authority of Singapore (MAS)";
+    } else if (textToClassify.includes("lombard") || textToClassify.includes("margin call") || textToClassify.includes("credit limit") || textToClassify.includes("haircut") || textToClassify.includes("ltv")) {
+      category = "Lombard";
+      confidence = 0.99;
+      complianceStatus = "Verified";
+      rationale = "Revolving multicurrency Lombard facility agreement with collateral haircuts, margin thresholds, and cross-collateral covenants.";
+      tags = ["Lombard-Facility", "Margin-80%", "Collateral-Pledge", "SOFR-Benchmark"];
+      governingLaw = "Switzerland & Singapore";
+    } else if (textToClassify.includes("mandate") || textToClassify.includes("asset allocation") || textToClassify.includes("saa") || textToClassify.includes("rebalancing")) {
+      category = "Mandate";
+      confidence = 0.95;
+      complianceStatus = "Verified";
+      rationale = "Strategic Asset Allocation (SAA) guidelines defining target weights, maximum drawdown limits, and portfolio drift triggers.";
+      tags = ["SAA-Policy", "Balanced-Growth", "Concentration-Cap", "Rebalancing-Triggers"];
+      governingLaw = "Julius Bär CIO Investment Framework";
+    } else if (textToClassify.includes("syndicate") || textToClassify.includes("series b") || textToClassify.includes("term sheet") || textToClassify.includes("co-investment") || textToClassify.includes("subscription")) {
+      category = "Syndicate";
+      confidence = 0.96;
+      complianceStatus = "Requires Legal Sign-off";
+      rationale = "Private market co-investment opportunity term sheet with liquidation preferences, information covenants, and capital call timelines.";
+      tags = ["Series-B", "Co-Investment", "Accredited-Investors", "Liquidation-Pref-1x"];
+      governingLaw = "Delaware / Singapore";
+    } else if (textToClassify.includes("valuation") || textToClassify.includes("appraisal") || textToClassify.includes("p&l") || textToClassify.includes("attribution") || textToClassify.includes("sharpe")) {
+      category = "Valuation";
+      confidence = 0.94;
+      complianceStatus = "Verified";
+      rationale = "Independent asset appraisal and quantitative performance attribution ledger tracking collateral coverage.";
+      tags = ["Independent-Appraisal", "Knight-Frank", "Coverage-2.0x", "Mark-to-Market"];
+      governingLaw = "Singapore Valuation Standards";
+    } else if (textToClassify.includes("esg") || textToClassify.includes("exclusion") || textToClassify.includes("defense") || textToClassify.includes("coal")) {
+      category = "Regulatory";
+      confidence = 0.96;
+      complianceStatus = "Verified";
+      rationale = "Binding sustainability policy and defense contractor exclusion thresholds for responsible wealth mandates.";
+      tags = ["ESG-Exclusion", "UN-Global-Compact", "Zero-Tolerance-Munitions", "SFDR-Article-8"];
+      governingLaw = "European SFDR & Swiss FinSA";
+    }
+
+    if (!process.env.GEMINI_API_KEY || !ai) {
+      return res.json({
+        category,
+        confidence,
+        complianceStatus,
+        rationale,
+        tags,
+        governingLaw,
+        source: "deterministic_taxonomy_classifier",
+      });
+    }
+
+    try {
+      const prompt = `Analyze this financial virtual data room document and classify it into one of the following exact categories:
+- "NDA" (Non-Disclosure Agreements, Confidentiality Undertakings)
+- "KYC" (Anti-Money Laundering, Client Due Diligence, Source of Wealth, Tax Residency)
+- "Lombard" (Credit Facilities, Margin Schedules, Collateral Haircuts, Pledges)
+- "Mandate" (Strategic Asset Allocation, Investment Guidelines, Portfolio Rebalancing)
+- "Syndicate" (Private Equity, Venture Debt, Co-Investment Term Sheets, Subscription Books)
+- "Valuation" (Independent Appraisals, DCF Models, Attribution Reports)
+- "Corporate" (Articles of Incorporation, UBO Registers, Board Minutes)
+- "Regulatory" (ESG Screening, Sanctions Lists, Statutory Compliance)
+
+DOCUMENT DATA:
+Title: ${title}
+FileName: ${fileName}
+Summary: ${summary}
+Content excerpt: ${(content || "").slice(0, 1000)}
+
+Respond in valid JSON only with this schema:
+{
+  "category": "NDA" | "KYC" | "Lombard" | "Mandate" | "Syndicate" | "Valuation" | "Corporate" | "Regulatory",
+  "confidence": 0.95,
+  "complianceStatus": "Verified" | "Requires Legal Sign-off" | "Pending Review",
+  "rationale": "one sentence explanation of why this document matches the category",
+  "tags": ["Tag1", "Tag2", "Tag3"],
+  "governingLaw": "Governing jurisdiction or policy"
+}`;
+
+      const { text, modelUsed } = await generateWithModelFailover(ai, prompt, "You are a Private Banking compliance and taxonomy officer at Bank Julius Bär. Output valid JSON only.", 0.1);
+      const cleaned = text.replace(/```json/gi, "").replace(/```/g, "").trim();
+      const parsed = JSON.parse(cleaned);
+      res.json({
+        category: parsed.category || category,
+        confidence: parsed.confidence || confidence,
+        complianceStatus: parsed.complianceStatus || complianceStatus,
+        rationale: parsed.rationale || rationale,
+        tags: parsed.tags || tags,
+        governingLaw: parsed.governingLaw || governingLaw,
+        source: `gemini_ai_${modelUsed}`,
+      });
+    } catch (err) {
+      console.warn("Gemini categorization failed, using deterministic:", err);
+      res.json({
+        category,
+        confidence,
+        complianceStatus,
+        rationale,
+        tags,
+        governingLaw,
+        source: "fallback_taxonomy_engine",
+      });
+    }
+  });
+
   // Vite middleware in dev or static files in production
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
